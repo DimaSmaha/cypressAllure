@@ -1,28 +1,66 @@
 /// <reference types="cypress" />
 
-class LoginPage {
-    get signinLink() { return cy.get('.login') }
-    get emailAddressTxt() { return cy.get('#email') }
-    get passwordTxt() { return cy.get('#passwd') }
-    get signinBtn() { return cy.get('#SubmitLogin') }
-    get alertBox() { return cy.get('p:contains("error")')}
-    get alertMessage() { return cy.get('.alert-danger > ol > li') }
-    
-    public launchApplication() {
-        cy.visit('/')
-    }
+import Common from "./common";
 
-    public login(emailId: string, password: string) {
-        this.signinLink.click()
-        this.emailAddressTxt.type(emailId)
-        this.passwordTxt.type(password)
-        this.signinBtn.click()
-    }
+class LoginPage extends Common {
+  get emailInput() {
+    return cy.get('[id="email_input"]');
+  }
 
-    public validateLoginError(errorMessage: string) {
-        this.alertBox.should('be.visible')
-        this.alertMessage.should('have.text', errorMessage)
+  get passwordInput() {
+    return cy.get('[id="password_input"]');
+  }
 
-    }
+  get logInBtn() {
+    return cy.get('[id="loginButton"]');
+  }
+
+  public clickLogInBtn() {
+    this.logInBtn.click();
+  }
+
+  public fillEmailAndPassword(email: string, password: string) {
+    this.emailInput.type(email);
+    this.passwordInput.type(password);
+  }
+
+  // public logInToAccount(email: string, password: string) {
+  //     this.emailInput.type(email)
+  //     this.passwordInput.type(password)
+  //     this.logInBtn.click()
+  // }
+
+  get forgotPasswordBtn() {
+    return cy.get('[class="forgot-pw"]');
+  }
+
+  public clickForgotPasswordBtn() {
+    this.forgotPasswordBtn.click();
+  }
+
+  get registerBtn() {
+    return cy.get('[href="/signup"]');
+  }
+
+  public clickRegisterBtn() {
+    this.registerBtn.click();
+  }
+
+  get emailErrorLaber() {
+    return cy.get('[id="email_label_error"]');
+  }
+
+  public checkEmailErrorLabelShown() {
+    this.emailErrorLaber.should("be.visible");
+  }
+
+  get passwordErrorLaber() {
+    return cy.get('[id="password_label_error"]');
+  }
+
+  public checkPasswordErrorLabelShown() {
+    this.passwordErrorLaber.should("be.visible");
+  }
 }
-export const loginPage: LoginPage = new LoginPage()
+
+export const loginPage: LoginPage = new LoginPage();

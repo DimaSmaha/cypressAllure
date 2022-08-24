@@ -9,7 +9,11 @@
     "cy:run": "cypress run --config-file config/config.config.ts --env allure=true",
     "report": "npx allure generate reports/ui/allure-results --clean -o reports/ui/allure-report && allure open reports/ui/allure-report",
     "allure:generate": "npx allure generate allure-results --clean",
-    "clear": "rm -r reports/** || true"
+    "clear": "rm -r reports/** || true",
+
+    "cy:open:dev": "cypress open --config-file config/dev.config.ts --env allure=true",
+    "cy:run:dev": "cypress run --config-file config/dev.config.ts --env allure=true --browser chrome",
+    "allure:generate:open:report": "npx allure generate allure-results --clean && npx allure open ./allure-report"
   },
   "keywords": [
     "cypress",
