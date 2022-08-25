@@ -2,7 +2,7 @@
 
 import Common from "./common";
 
-class Newsletter extends Common {
+class NewsPage extends Common {
   get newsInput() {
     return cy.get('[name="email"]');
   }
@@ -20,4 +20,4 @@ class Newsletter extends Common {
     this.newsSubmitBtn.click();
   }
 }
-export default News;
+export default NewsPage;

@@ -18,14 +18,6 @@ class ForgotPasswordPage extends Common {
   public clickResetPasswordBtn() {
     this.resetPasswordBtn.click();
   }
-
-  get cancelBtn() {
-    return cy.get('[href="/"]').contains("Cancel");
-  }
-
-  public clickCancelBtn() {
-    this.cancelBtn.click();
-  }
 }
 
 export const forgotPasswordPage: ForgotPasswordPage = new ForgotPasswordPage();

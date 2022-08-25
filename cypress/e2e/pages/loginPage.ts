@@ -30,14 +30,6 @@ class LoginPage extends Common {
   //     this.logInBtn.click()
   // }
 
-  get forgotPasswordBtn() {
-    return cy.get('[class="forgot-pw"]');
-  }
-
-  public clickForgotPasswordBtn() {
-    this.forgotPasswordBtn.click();
-  }
-
   get registerBtn() {
     return cy.get('[href="/signup"]');
   }

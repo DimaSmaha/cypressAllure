@@ -3,8 +3,8 @@
 import Footer from "./footer";
 
 class Header extends Footer {
-  public clickHomePageLogoBtn() {
-    this.homePageLogoBtn.click();
+  public clickHomePageBtn() {
+    this.homePageBtn.click();
   }
 
   get resourcesBtn() {
